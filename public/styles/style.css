@@ -1,0 +1,11 @@
+a{color:aquamarine;
+    margin: 5px;
+}
+p{background-color: brown;} 
+
+.lorem{
+    background-color: brown;
+}
+#profile_id:hover {
+color: rgb(255,0,150);
+}

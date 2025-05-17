@@ -1,15 +1,18 @@
-import "dotenv/config";
-import express from "express";
-import indexRoutes from "./routes/index.routes.js";
-import usersRoutes from "./routes/users.routes.js";
+// index.js
+
+const express = require("express");
+const routes = require("./routes/index.routes");
+const path = require("path");
 
 const app = express();
+const port = 3000;
 
 app.use(express.json());
+app.use(routes);
 
-app.use(indexRoutes);
-app.use(usersRoutes);
+// Carpeta pública
+app.use(express.static(path.join(__dirname, "public")));
 
-const port = 5000;
-
-app.listen(port,console.log("http://localhost:"+port));
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
+});
